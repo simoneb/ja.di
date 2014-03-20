@@ -1,0 +1,34 @@
+{
+  "name": "ja.di",
+  "version": "0.0.1",
+  "description": "javascript diff library",
+  "main": "ja.di.js",
+  "scripts": {
+    "test": "bash ./scripts/humans-run-this.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/simoneb/jadi.git"
+  },
+  "keywords": [
+    "diff"
+  ],
+  "author": "Simone Busoli <simone.busoli@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/simoneb/ja.di/issues"
+  },
+  "homepage": "https://github.com/simoneb/ja.di",
+  "dependencies": {
+    "lodash": "~2.4.1"
+  },
+  "devDependencies": {
+    "karma": "~0.12.1",
+    "jasmine-node": "~1.14.2",
+    "karma-cli": "0.0.4",
+    "karma-jasmine": "~0.1.5",
+    "karma-phantomjs-launcher": "~0.1.2",
+    "karma-chrome-launcher": "~0.1.2",
+    "karma-sauce-launcher": "~0.2.3"
+  }
+}

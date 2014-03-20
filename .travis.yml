@@ -1,0 +1,16 @@
+script: $TEST_COMMAND
+language: node_js
+env:
+  global:
+  - TEST_COMMAND="bash ./scripts/travis-sauce.sh"
+  - secure: Wn70NI0TsNbTTF9VV3gCz4MAQRFZLmeqLTafA78HtQ07UTVK/sYW45blEu+2BcZbiTMBQ23z8q+qJOC1kv4tmDvkXF3VeJkYJWGNw0XS85cOHtFXTDCTfS/Xe4Koa9Q7iVxO6sonl2rFuRWTyS+3lTEAiJ0cbARN/+hyqF7JUnM=
+  - secure: FsCfWcQW5UYVHr2V0npznaqdyvc18gP0hewVaXYJxXRhvHY9rBEPA2k3KL6FmvvB7WUm9IKl3ArW1aLgWQyn5prkOQNhwrLwIPGJmzb2uAW7oeXpkHOV3FTyBoTW5RR8SwJhb5gmA5odcIjftmwYyxy6EaQmwxlf1j/cD6OstSA=
+  matrix:
+  - TEST_COMMAND="jasmine-node . --matchall --verbose"
+  - JASMINE_BROWSER="firefox"           SAUCE_OS="Linux"     SAUCE_BROWSER_VERSION=''
+  - JASMINE_BROWSER="safari"            SAUCE_OS="OS X 10.8" SAUCE_BROWSER_VERSION=6
+  - JASMINE_BROWSER="safari"            SAUCE_OS="OS X 10.6" SAUCE_BROWSER_VERSION=5
+  - JASMINE_BROWSER="internet explorer" SAUCE_OS="Windows 8" SAUCE_BROWSER_VERSION=10
+  - JASMINE_BROWSER="internet explorer" SAUCE_OS="Windows 7" SAUCE_BROWSER_VERSION=9
+  - JASMINE_BROWSER="internet explorer" SAUCE_OS="Windows 7" SAUCE_BROWSER_VERSION=8
+  - JASMINE_BROWSER="chrome"            SAUCE_OS="Linux"     SAUCE_BROWSER_VERSION=''
