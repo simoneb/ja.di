@@ -1,6 +1,6 @@
 {
   "name": "ja.di",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "javascript diff library",
   "main": "ja.di.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/simoneb/jadi.git"
+    "url": "https://github.com/simoneb/ja.di.git"
   },
   "keywords": [
     "diff"

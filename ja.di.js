@@ -66,6 +66,7 @@
       mapDiff(diffs, map, []);
     };
   };
+
   var makeDiff = function(_) {
     function makeKeyGetter(keyValue) {
       if(_.isPlainObject(keyValue) && _.has(keyValue, '_key')) {
@@ -171,21 +172,17 @@
     return diff;
   };
 
-  if(typeof window == "undefined") {
-    if(typeof exports == "object") {
-      exports.interpret = makeInterpret(require('lodash'));
-      exports.diff = makeDiff(require('lodash'));
-    }
-
-    if(typeof define == "function") {
-      define(['lodash'], function(_){
-        return {
-          interpret: makeInterpret(_),
-          diff: makeDiff(_)
-        };
-      });
-    }
-  } else {
+  if(typeof exports == "object") {
+    exports.interpret = makeInterpret(require('lodash'));
+    exports.diff = makeDiff(require('lodash'));
+  } else if(typeof define == "function") {
+    define(['lodash'], function(_){
+      return {
+        interpret: makeInterpret(_),
+        diff: makeDiff(_)
+      };
+    });
+  } else if(typeof window != "undefined") {
     window.jadi = {
       interpret: makeInterpret(window._),
       diff: makeDiff(window._)
