@@ -13,3 +13,9 @@ echo "Running jasmine-node (https://github.com/mhevery/jasmine-node)"
 echo "-------------------------------------------------------------------"
 
 jasmine-node $BASE_DIR/.. --matchall --verbose $*
+
+echo ""
+echo "Running JSHint (http://www.jshint.com/)"
+echo "-------------------------------------------------------------------"
+
+jshint $BASE_DIR/../*.js $*

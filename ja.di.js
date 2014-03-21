@@ -5,7 +5,7 @@
 
       _(map).keys()
         .map(function(k) { return k.split('.'); })
-        .filter(function(arr) { return arr.length > 1 })
+        .filter(function(arr) { return arr.length > 1; })
         .filter(function(arr) { return _.every(arr, _.bind(_.has, _, diff)); })
         .sortBy(function(arr) { return -arr.length; })
         .forEach(function(arr) {
@@ -28,7 +28,7 @@
       _.forEach(diffs, function (diff) {
         // shorthand syntax for left-right
         if ((_.has(diff, '_left') || _.has(diff, '_right')) && _.isFunction(map)) {
-          map.apply(undefined, keys.concat([diff['_left'], diff['_right']]));
+          map.apply(undefined, keys.concat([diff._left, diff._right]));
         }
 
         // common syntax for handling either left or right individually
@@ -40,7 +40,7 @@
 
         // recur on keys
         if (_.has(map, '_key') && _.has(diff, '_key')) {
-          mapDiff(_.omit(diff, '_key'), map['_key'], (keys.concat(diff['_key'])));
+          mapDiff(_.omit(diff, '_key'), map._key, (keys.concat(diff._key)));
         }
 
         // recur on object properties
@@ -70,7 +70,7 @@
   var makeDiff = function(_) {
     function makeKeyGetter(keyValue) {
       if(_.isPlainObject(keyValue) && _.has(keyValue, '_key')) {
-        var keyAsMap = keyValue['_key'];
+        var keyAsMap = keyValue._key;
 
         if(_.isFunction(keyAsMap)) {
           return keyAsMap;
@@ -161,8 +161,10 @@
         return diffObjects(left, right, keyValue);
       }
 
-      if(_.isDate(left) && _.isDate(right) && left.getTime() === right.getTime()
-        || left === right) {
+      if(_.isDate(left) && 
+         _.isDate(right) && 
+         left.getTime() === right.getTime() || 
+         left === right) {
         return undefined;
       }
 
